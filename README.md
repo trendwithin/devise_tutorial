@@ -1,24 +1,4 @@
-# README
+#Devise Tutorial for Rails 5.0
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+There are noticeable changes in the behavior of Devise from previous projects I've worked on.  
+This guide is intended to document differences I've come across for future reference.
