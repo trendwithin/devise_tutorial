@@ -25,3 +25,24 @@ irb(main):002:0> User.new
 => #<User id: nil, email: "", created_at: nil, updated_at: nil>
 irb(main):003:0>
 ```
+
+###test_helper###
+
+*Rails 4.2.x/Devise 3.5.x*
+
+Deprecated:
+```
+class ActionController::TestCase
+  include Devise::TestHelpers
+end
+```
+
+*Rails 5.0/Devise 4.2.0*
+
+New Usage:
+
+```
+class ActionController::TestCase
+  include Devise::Test::ControllerHelpers
+end
+```
