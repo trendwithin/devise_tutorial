@@ -24,4 +24,16 @@ class Users::RegistrationsControllerTest < ActionController::TestCase
     assert_not flash.empty?
     assert_equal "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.", flash['notice']
   end
+
+  test 'create user token matches mailer token' do
+    assert_difference('User.count', 1) do
+      @request.env['devise.mapping'] = Devise.mappings[:user]
+      post :create, params: { user: { name: 'test_confirmation', email: 'confirm_user@registrations_controller.com',
+                                      password: '12345678' } }
+      mail = ActionMailer::Base.deliveries[0]
+      token = mail.body.decoded.match(/confirmation_token=([^"]+)/)[1]
+      user_token = User.find_by(email: 'confirm_user@registrations_controller.com').confirmation_token
+      assert_equal token, user_token
+    end
+  end
 end
