@@ -46,3 +46,15 @@ class ActionController::TestCase
   include Devise::Test::ControllerHelpers
 end
 ```
+
+###Controller Test Syntax###
+
+Not specific to Devise, but still useful to be aware of.
+
+*Rails 4.2/Devise 3.5.x*
+
+post :create, user: { email: 'test@example.com, password: 'password' }
+
+*Rails 5.0/Devise 4.2.0*
+
+post :create, params: { member: { email: 'test@example.com', password: 'password'} }
