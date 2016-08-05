@@ -6,7 +6,7 @@ class Users::RegistrationsControllerTest < ActionController::TestCase
     get :new
     assert_response :success
 
-    # assert_select 'input#user_name' FAIL- Modify View
+    assert_select 'input#user_username'
     assert_select 'input#user_email'
     assert_select 'input#user_password'
     assert_select 'input#user_password_confirmation'
