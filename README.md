@@ -52,9 +52,28 @@ end
 Not specific to Devise, but still useful to be aware of.
 
 *Rails 4.2/Devise 3.5.x*
-
+```
 post :create, user: { email: 'test@example.com, password: 'password' }
+```
+*Rails 5.0/Devise 4.2.0*
+```
+post :create, params: { member: { email: 'test@example.com', password: 'password'} }
+```
+
+### configure_permitted_parameters ###
+
+*Rails 4.2/Devise 3.5.x*
+
+There's been a change in the usage of configure_permitted_parameters. Previous syntax:
+
+```
+devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation) }
+```
 
 *Rails 5.0/Devise 4.2.0*
 
-post :create, params: { member: { email: 'test@example.com', password: 'password'} }
+Newer syntax:
+
+```
+devise_parameter_sanitizer.permit(:sign_up, keys: [:user])
+```
