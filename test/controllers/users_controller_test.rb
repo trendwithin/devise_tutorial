@@ -24,7 +24,7 @@ class Users::RegistrationsControllerTest < ActionController::TestCase
     assert_redirected_to root_path
     assert_not flash.empty?
     assert_equal "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.", flash['notice']
-    assert_equal 'test', u.username 
+    assert_equal 'test', u.username
   end
 
   test 'create user token matches mailer token' do
